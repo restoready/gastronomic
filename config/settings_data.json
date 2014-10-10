@@ -1,10 +1,10 @@
 {
   "current":{
-    "google-fonts-link": "<link href='http://fonts.googleapis.com/css?family=Bevan|Open+Sans:400,700' rel='stylesheet' type='text/css'>",
-    "header-font": "Bevan",
-    "body-font": "'Open Sans', sans-serif",
-    "body-background": "#ffffff",
-    "body-color": "#465155",
+    "google-fonts-link": "<link href='http://fonts.googleapis.com/css?family=Prata' rel='stylesheet' type='text/css'>",
+    "header-font": "'Prata'",
+    "body-font": "'Prata'",
+    "body-background": "#eeeeee",
+    "body-color": "#777777",
     "accent-color": "#e5442e",
     "google_business_view_url": "",
     "display_google_business_view_url": false,
@@ -15,11 +15,11 @@
   },
   "presets":{
     "Original":{
-      "google-fonts-link": "<link href='http://fonts.googleapis.com/css?family=Bevan|Open+Sans:400,700' rel='stylesheet' type='text/css'>",
-      "header-font": "Bevan",
-      "body-font": "'Open Sans', sans-serif",
-      "body-background": "#ffffff",
-      "body-color": "#465155",
+      "google-fonts-link": "<link href='http://fonts.googleapis.com/css?family=Prata' rel='stylesheet' type='text/css'>",
+      "header-font": "'Prata'",
+      "body-font": "'Prata'",
+      "body-background": "#eeeeee",
+      "body-color": "#777777",
       "accent-color": "#e5442e",
       "google_business_view_url": "",
       "display_google_business_view_url": false,

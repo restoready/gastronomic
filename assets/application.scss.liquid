@@ -519,11 +519,9 @@ body {
   color: $body-color;
   background-color: $body-background;
 }
-
 .page {
   @extend .clearfix;
 }
-
 .main-header {
 }
   .logo {
@@ -538,39 +536,13 @@ body {
         vertical-align: middle;
         width: 180px;
       }
-  .restaurant-name {
-    text-align: center;
-  }
+    .restaurant-name {
+      text-align: center;
+    }
     .slogan {
       color: scale-color($body-color, $lightness: +25%);
       font-size: .9em;
-      font-style: italic;
     }
-    .restaurant-name__link {
-      color: scale-color($body-color, $lightness: -25%);
-      font-family: {{ theme_settings.header-font }};
-      font-size: 2em;
-      line-height: 1;
-      text-decoration: none;
-    }
-  .phone-number {
-    margin: 1em 0;
-    text-align: center;
-  }
-    .phone-number__link {
-      color: $accent-color;
-      font-size: 1.5em;
-      text-decoration: none;
-      &:hover, &:focus {
-        color: #000;
-        .phone-number__label {
-          color: #000;
-        }
-      }
-    }
-      .phone-number__label {
-        color: $body-color;
-      }
 
 .main-nav {
   position: absolute;
@@ -586,7 +558,7 @@ body {
   height: 3.9em;
   text-align: left;
   text-indent: -9999px;
-  background-color: $accent-color;
+  background-color: $body-color;
   position: relative;
   &:before,
   &:after {
@@ -609,7 +581,6 @@ body {
   display: block;
 }
 .main-nav__items {
-  background-color: $accent-color;
   display: none;
   height: auto;
   margin-bottom: 0;
@@ -619,28 +590,22 @@ body {
     width: 100%;
   }
   .main-nav__item {
-    &:not(:last-child) {
-      border-bottom: 1px solid scale-color($accent-color, $lightness: +25%);
-    }
     display: block;
     margin: 0;
   }
   .main-nav__item--current {
-    background-color: scale-color($accent-color, $lightness: -15%);
+    border-bottom: 1px solid scale-color($accent-color, $lightness: -15%);
   }
     .main-nav__link {
-      color: #fff;
+      color: $body-color;
+      font-family: $bodyFontStack;
       display: block;
       height: auto;
       padding: 0.75em 1em;
-      font-size: 1.3em;
-      font-weight: 700;
+      font-size: 1em;
       text-decoration: none;
-      &:hover, &:focus {
-        background-color: scale-color($accent-color, $lightness: -15%);
-      }
       &:active {
-        background-color: scale-color($accent-color, $lightness: -30%);
+        color: scale-color($accent-color, $lightness: -30%);
       }
     }
 
@@ -649,8 +614,6 @@ body {
       width: 0;
       height: 0;
       border: 0.313em solid transparent;
-      border-bottom: none;
-      border-top-color: scale-color($accent-color, $lightness: +50%);
       content: '';
       vertical-align: middle;
       display: inline-block;
@@ -663,25 +626,20 @@ body {
   }
 
 .main-sub-nav__items {
-  background-color: scale-color($accent-color, $lightness: -10%);
   display: none;
   margin-bottom: 0;
 }
   .main-sub-nav__item {
     @extend .main-nav__item;
-    &:not(:last-child) {
-      border-bottom: 1px solid scale-color($accent-color, $lightness: +5%);
-    }
   }
   .main-sub-nav__item--current {
-    background-color: scale-color($accent-color, $lightness: -15%);
+    color: scale-color($accent-color, $lightness: -15%);
   }
     .main-sub-nav__link {
       @extend .main-nav__link;
       font-weight: 400;
       padding-left: 1.5em;
     }
-
 
 .main-content {
   margin-bottom: 1em;
@@ -692,7 +650,6 @@ body {
   }
 
 .main-footer {
-  background-color: scale-color($body-color, $lightness: +95%);
   border-top: 1px solid scale-color($body-color, $lightness: +85%);
 }
   .back-to-top {
@@ -706,8 +663,6 @@ body {
         color: $body-color;
       }
     }
-      .back-to-top__label {
-      }
   .footer__subscribe {
   }
   .footer__social {
@@ -735,7 +690,8 @@ body {
           font-size: .7em;
         }
           .social__label {
-            @extend .hide-text;
+            // @extend .hide-text;
+            font-size: .5em;
           }
 
   .footer__legal {
@@ -1087,7 +1043,6 @@ legend {
       }
     }
 
-
 // Tags
 .food__tags {
 }
@@ -1255,70 +1210,6 @@ x:-o-prefocus, .lb-overlay img {
 
 
 // ===========================================================================
-// #Icomoon font
-// https://icomoon.io/app/
-// ===========================================================================
-@font-face {
-  font-family: 'restoready-starter';
-  src:url("{{ 'restoready-starter.eot?g9q59m' | asset_url }}");
-  src:url("{{ 'restoready-starter.eot?#iefixg9q59m' | asset_url }}") format('embedded-opentype'),
-    url("{{ 'restoready-starter.woff?g9q59m' | asset_url }}") format('woff'),
-    url("{{ 'restoready-starter.ttf?g9q59m' | asset_url }}") format('truetype'),
-    url("{{ 'restoready-starter.svg?g9q59m#restoready-starter' | asset_url }}") format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-[class^="icon-"], [class*=" icon-"] {
-  font-family: 'restoready-starter';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-tripadvisor:before {
-  content: "\e600";
-}
-.icon-times:before {
-  content: "\e601";
-}
-.icon-chevron-right:before {
-  content: "\e602";
-}
-.icon-chevron-left:before {
-  content: "\e603";
-}
-.icon-star:before {
-  content: "\e604";
-}
-.icon-warning:before {
-  content: "\e605";
-}
-.icon-input-checked:before {
-  content: "\e606";
-}
-.icon-social-twitter:before {
-  content: "\e607";
-}
-.icon-social-facebook:before {
-  content: "\e608";
-}
-.icon-phone:before {
-  content: "\e609";
-}
-.icon-envelope:before {
-  content: "\f0e0";
-}
-
-
-// ===========================================================================
 // #Breakpoints
 // ===========================================================================
 
@@ -1332,18 +1223,6 @@ x:-o-prefocus, .lb-overlay img {
   }
   .identity {
     @include media;
-  }
-  .logo {
-    @include media-aside;
-  }
-    .logo__image {
-      width: 120px;
-      margin-right: 1.5em;
-    }
-  .restaurant-name {
-    @include media-body;
-    padding: 1em 0;
-    text-align: left;
   }
   .main-nav__toggle { 
     width: 3.1em;
@@ -1373,16 +1252,6 @@ x:-o-prefocus, .lb-overlay img {
     font-size: 125%;
   }
 
-  .identity {
-    float: left;
-    width: 65%;
-  }
-  .phone-number {
-    float: right;
-    text-align: right;
-    width: 35%;
-  }
-  
   .main-nav {
     position: relative;
     text-align: center;
@@ -1395,9 +1264,6 @@ x:-o-prefocus, .lb-overlay img {
     }
       .main-nav__item {
         display: inline-block;
-        &:not(:last-child) {
-          border-bottom: none;
-        }
       }
         .main-nav__link {
           display: inline-block;

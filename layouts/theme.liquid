@@ -31,9 +31,6 @@
               </div>
             {% endif %}
             <div class="restaurant-name">
-              <a class="restaurant-name__link" href="{{ localized_root_path }}">
-                {{ restaurant.name }}
-              </a>
               {% if restaurant.slogan? %}
                 <div class="slogan">
                   {{ restaurant.slogan }}
@@ -41,13 +38,6 @@
               {% endif %}
             </div>
           </div>
-          {% if restaurant.phone? %}
-            <div class="phone-number">
-              <a class="phone-number__link" href="tel:{{ restaurant.phone_uri }}">
-                <i class="icon-phone"></i> <span class="phone-number__label">{{ restaurant.phone }}</span>
-              </a>
-            </div>
-          {% endif %}
         </div>
       </header>
       <nav id="nav" class="main-nav" role="navigation">

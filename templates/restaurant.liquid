@@ -41,3 +41,28 @@
       {% endif %}
   </section>
 {% endif %}
+
+<section class="wrapper">
+  <section class="opening-hours">
+    <header class="section__header">
+      <h2 class="section__title">{{ "Horaires" | t }}</h2>
+    </header>
+    <main class="section__main">
+      <dl class="opening-days">
+      {% for day in opening_hours %}
+        <dt class="opening-day">
+          {{ day.name }}
+        </dt>
+        <dd class="opening-shifts">
+          {{ day.shifts }}
+        </dd>
+      {% endfor %}
+      </dl>
+    {% if restaurant.opening_hours_information? %}
+      <div class="opening-hours__information">
+        <p>{{ restaurant.opening_hours_information }}</p>
+      </div>
+    {% endif %}
+    </main>
+  </section>
+</section>
