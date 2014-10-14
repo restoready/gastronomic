@@ -39,6 +39,7 @@
 // #Colors
 // ===========================================================================
 $body-background: {{ theme_settings.body-background }};
+$overlay-background: {{ theme_settings.overlay-background }};
 $body-color: {{ theme_settings.body-color }};
 $accent-color: {{ theme_settings.accent-color }};
 
@@ -558,7 +559,7 @@ body {
   height: 3.9em;
   text-align: left;
   text-indent: -9999px;
-  background-color: $body-color;
+  background-color: #212121;
   position: relative;
   &:before,
   &:after {
@@ -584,28 +585,36 @@ body {
   display: none;
   height: auto;
   margin-bottom: 0;
+  background-color: #212121;
 }
   .main-nav:target .main-nav__items {
     display: block;
     width: 100%;
   }
   .main-nav__item {
+    &:not(:last-child) {
+      border-bottom: 1px solid scale-color($body-color, $lightness: +25%);
+    }
     display: block;
     margin: 0;
   }
   .main-nav__item--current {
-    border-bottom: 1px solid scale-color($accent-color, $lightness: -15%);
+    background-color: scale-color($body-color, $lightness: +25%);
   }
     .main-nav__link {
-      color: $body-color;
+      color: #FFFFFF;
       font-family: $bodyFontStack;
       display: block;
       height: auto;
       padding: 0.75em 1em;
-      font-size: 1em;
+      font-size: 1.25em;
       text-decoration: none;
+      transition: background-color .25s;
+      &:hover, &:focus {
+        background-color: scale-color($body-color, $lightness: -15%);
+      }
       &:active {
-        color: scale-color($accent-color, $lightness: -30%);
+        background-color: scale-color($body-color, $lightness: -30%);
       }
     }
 
@@ -614,6 +623,7 @@ body {
       width: 0;
       height: 0;
       border: 0.313em solid transparent;
+      border-top-color: scale-color($body-color, $lightness: +50%);
       content: '';
       vertical-align: middle;
       display: inline-block;
@@ -631,9 +641,12 @@ body {
 }
   .main-sub-nav__item {
     @extend .main-nav__item;
+    &:not(:last-child) {
+      border-bottom: 1px solid scale-color($body-color, $lightness: -50%);
+    }
   }
   .main-sub-nav__item--current {
-    color: scale-color($accent-color, $lightness: -15%);
+    background-color: scale-color($body-color, $lightness: -15%);
   }
     .main-sub-nav__link {
       @extend .main-nav__link;
@@ -650,7 +663,6 @@ body {
   }
 
 .main-footer {
-  border-top: 1px solid scale-color($body-color, $lightness: +85%);
 }
   .back-to-top {
     padding: $gutter;
@@ -1255,29 +1267,55 @@ x:-o-prefocus, .lb-overlay img {
   .main-nav {
     position: relative;
     text-align: center;
+    margin-top: 1em;
   }
     .main-nav__toggle {
       display: none !important;
     }
     .main-nav__items {
       display: block;
+      background-color: transparent !important;
     }
       .main-nav__item {
         display: inline-block;
+        &:not(:last-child) {
+          border-bottom: none;
+        }
       }
         .main-nav__link {
           display: inline-block;
+          border-bottom: none;
+          color: $body-color;
+          &:hover, &:focus, &:active {
+            background-color: transparent !important;
+            color: scale-color($body-color, $lightness: -15%);
+          }
+        }
+        .main-nav__item--current {
+          background-color: transparent !important;
         }
       .main-sub-nav__items {
         position: absolute;
+        background-color: $overlay-background;
       }
         .main-sub-nav__item {
           display: block;
           text-align: left;
+          &:not(:last-child) {
+            border-bottom: none;
+          }
         }
           .main-sub-nav__link {
             display: block;
             padding-left: 1em;
+            color: white;
+            transition: color .25s;
+            &:hover {
+              color: scale-color(white, $lightness: -15%);
+            }
+          }
+          .main-sub-nav__item--current {
+            background-color: transparent !important;
           }
 
   
@@ -1286,11 +1324,14 @@ x:-o-prefocus, .lb-overlay img {
       display: inline-block;
       width: 70%;
     }
+      .subscribe__label {
+        font-size: .95em;
+      }
     .submit {
       display: inline-block;
       width: 20%;
       vertical-align: top;
-      margin-top: 1.65em;
+      margin-top: 1.55em;
     }
   }
 
