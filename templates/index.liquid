@@ -1,0 +1,21 @@
+{% if home_foods.size > 0 %}
+  <section class="foods foods--featured">
+    <div class="wrapper">
+      <main class="section__main">
+        <ul class="block-grid">
+          {% for food in home_foods %}
+            {% include 'food' with food:food, display_infos_food:false %}
+          {% endfor %}
+        </ul>
+      </main>
+      <div class="clearer"></div>
+      <footer class="section__footer foods__footer">
+        <p>
+          <a class="button" href="{{ restaurant.menus_path }}">
+            {{ "Voir toute la carte" | t }}
+          </a>
+        </p>
+      </footer>
+    </div>
+  </section>
+{% endif %}

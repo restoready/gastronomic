@@ -520,6 +520,9 @@ body {
   color: $body-color;
   background-color: $body-background;
 }
+.clearer {
+  clear: both;
+}
 .page {
   @extend .clearfix;
 }
@@ -655,7 +658,6 @@ body {
     }
 
 .main-content {
-  margin-bottom: 1em;
 }
   .section__header {
   }
@@ -842,7 +844,6 @@ legend {
   }
 }
 .menus--featured {
-  background-color: #fff;
   margin-bottom: 1em;
   padding: 1em 0;
   .section__title {
@@ -853,14 +854,15 @@ legend {
 }
 
 .foods--featured {
-  background-color: scale-color($body-color, $lightness: +95%);
-  margin-bottom: 1em;
   padding: 1em 0;
   .section__title {
     color: #444;
     border-bottom: 1px solid scale-color($body-color, $lightness: +85%);
     margin-bottom: .5em;
   }
+}
+.foods__footer {
+  margin-top: 1em;
 }
 
 .menus__footer,
@@ -989,13 +991,11 @@ legend {
 
 // Food item
 .food {
-  @include media;
   padding: 0;
+  margin-bottom: 1em;
 }
   .food__image {
-    @include media-aside;
-    margin-right: $gutter / 2;
-    vertical-align: middle;
+    width: 100%;
   }
   .food__body {
     @include media-body;
@@ -1246,7 +1246,18 @@ x:-o-prefocus, .lb-overlay img {
   .menu-child {
     width: 32%;
   }
-
+  .food {
+    float: left;
+    width: 46%;
+    margin: 0 2%;
+  }
+  .block-grid {
+    &>li {
+      &:nth-of-type(2n+1) {
+        clear: left;
+      }
+    }
+  }
   .gallery__item {
     display: inline-block;
     vertical-align: top;
@@ -1349,7 +1360,21 @@ x:-o-prefocus, .lb-overlay img {
   .menu-child {
     width: 19%;
   }
-
+  .food {
+    float: left;
+    width: 29%;
+    margin: 0 2%;
+  }
+  .block-grid {
+    &>li {
+      &:nth-of-type(2n+1) {
+        clear: none;
+      }
+      &:nth-of-type(3n+1) {
+        clear: none;
+      }
+    }
+  }
   .gallery__item {
     width: 30%;
     margin: 1%;
