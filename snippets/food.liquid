@@ -1,6 +1,12 @@
 <li class="food {% if food.featured_in_menu? %}food--featured{% endif %} {{food.auto_css_classes}}" id="food-{{food.id}}">
   {% if food.main_image? %}
-    {{ food.main_image | custom_image_url:'200x325#' | image_tag:'class:food__image' }}
+    {% if add_link == true %}
+      <a href="{{ restaurant.menus_path }}">
+    {% endif %}
+      {{ food.main_image | custom_image_url:'450x800#' | image_tag:'class:food__image' }}
+    {% if add_link == true %}
+      </a>
+    {% endif %}
   {% endif %}
   {% if display_infos_food == true %}
     <div class="food__body">

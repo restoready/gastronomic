@@ -490,6 +490,7 @@ form.form-horizontal,
   vertical-align: middle;
   white-space: nowrap;
   -webkit-appearance: none;
+  transition: background-color .25s;
 
   &.button--small {
     font-size: 0.75em;
@@ -531,6 +532,9 @@ body {
 }
 .page-header__title {
   font-size: 3em;
+}
+.page-header__description {
+  text-align: center;
 }
 .main-header {
 }
@@ -616,7 +620,7 @@ body {
       display: block;
       height: auto;
       padding: 0.75em 1em;
-      font-size: 1.25em;
+      font-size: 1.30em;
       text-decoration: none;
       transition: background-color .25s;
       &:hover, &:focus {
@@ -876,58 +880,6 @@ legend {
   text-align: center;
 }
 
-.opening-hours {
-  background-color: #fff;
-  margin-bottom: 1em;
-  .section__title {
-    color: #444;
-    border-bottom: 1px solid scale-color($body-color, $lightness: +85%);
-    margin-bottom: .5em;
-  }
-}
-  .opening-days {
-    @extend .clearfix;
-    margin-bottom: 1em;
-  }
-    .opening-day {
-      color: $body-color;
-      clear: left;
-      float: left;
-      font-size: 1em;
-      width: 25%;
-    }
-    .opening-shifts {
-      color: scale-color($accent-color, $saturation: -75%);
-      font-size: 1em;
-      margin-left: 30%;
-    }
-  .opening-hours__information {
-    margin-bottom: 1em;
-  }
-
-.directions, .business-view {
-  background-color: #fff;
-  margin-bottom: 1em;
-  .section__title {
-    color: #444;
-    border-bottom: 1px solid scale-color($body-color, $lightness: +85%);
-    margin-bottom: 1em;
-  }
-}
-  .map {
-    margin-bottom: 1em;
-  }
-    .map__image {
-      @extend .auto;
-    }
-  .address {
-    color: $body-color;
-    font-size: 1.2em;
-  }
-  .directions__footer {
-    text-align: center;
-  }
-
 // All menus
 .menus {
   .section__header {
@@ -940,6 +892,7 @@ legend {
 // Menu item
 .menu {
   padding-bottom: 1em;
+  overflow: hidden;
 }
   .menu--featured {
 
@@ -948,7 +901,7 @@ legend {
       @extend .auto;
     }
   .menu__header {
-
+    text-align: center;
   }
     .menu__title {
       color: #000;
@@ -957,6 +910,7 @@ legend {
   .menu__description {
     font-size: 1em;
     margin-bottom: 1em;
+    text-align: center;
   }
 
 .menus__menu-link {
@@ -1006,6 +960,9 @@ legend {
       }
 
 // Food item
+.block-grid {
+  list-style: none;
+}
 .food {
   padding: 0;
   margin-bottom: 1em;
@@ -1057,6 +1014,7 @@ legend {
 // Back to menu
 .back-to-menu {
     text-align: center;
+    margin: 1.5em 0;
     &:before {
       color: #727272;
       content: "\2191";
@@ -1121,6 +1079,59 @@ legend {
           font-weight: 700;
           background-color: rgba($body-color, .75);
         }
+.opening-hours {
+  background-color: #fff;
+  margin-bottom: 1em;
+  .section__title {
+    color: #444;
+    border-bottom: 1px solid scale-color($body-color, $lightness: +85%);
+    margin-bottom: .5em;
+  }
+}
+  .opening-days {
+    @extend .clearfix;
+    margin-bottom: 1em;
+  }
+    .opening-day {
+      color: $body-color;
+      clear: left;
+      float: left;
+      font-size: 1em;
+      width: 25%;
+    }
+    .opening-shifts {
+      color: scale-color($accent-color, $saturation: -75%);
+      font-size: 1em;
+      margin-left: 30%;
+    }
+  .opening-hours__information {
+    margin-bottom: 1em;
+  }
+
+// Contact 
+.directions, .business-view {
+  background-color: #fff;
+  margin-bottom: 1em;
+  .section__title {
+    color: #444;
+    border-bottom: 1px solid scale-color($body-color, $lightness: +85%);
+    margin-bottom: 1em;
+  }
+}
+  .map {
+    margin-bottom: 1em;
+  }
+    .map__image {
+      @extend .auto;
+    }
+  .address {
+    color: $body-color;
+    font-size: 1.2em;
+    text-align: center;
+  }
+  .directions__footer {
+    text-align: center;
+  }
 
 /**
  * Pure CSS Lightbox
@@ -1263,7 +1274,7 @@ x:-o-prefocus, .lb-overlay img {
   .food {
     float: left;
     width: 46%;
-    margin: 0 2%;
+    margin: .5em 2%;
   }
   .block-grid {
     &>li {
@@ -1360,22 +1371,11 @@ x:-o-prefocus, .lb-overlay img {
     }
   }
 
-  .opening-hours,
-  .directions {
-    width: 48%;
-  }
-  .opening-hours {
-    float: left;
-  }
-  .directions {
-    float: right;
-  }
-
   .menu-child,
   .food {
     float: left;
     width: 29%;
-    margin: 0 2%;
+    margin: .5em 2%;
   }
   .block-grid {
     &>li {
@@ -1383,7 +1383,7 @@ x:-o-prefocus, .lb-overlay img {
         clear: none;
       }
       &:nth-of-type(3n+1) {
-        clear: none;
+        clear: left;
       }
     }
   }

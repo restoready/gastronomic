@@ -4,7 +4,7 @@
       <main class="section__main">
         <ul class="block-grid">
           {% for food in home_foods %}
-            {% include 'food' with food:food, display_infos_food:false %}
+            {% include 'food' with food:food, add_link:true %}
           {% endfor %}
         </ul>
       </main>

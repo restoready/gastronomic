@@ -1,7 +1,4 @@
 <div class="menu {% if menu.featured %} menu--featured {% endif %}" id="menu-{{menu.id}}">
-  {% if menu.main_image? %}
-    {{ menu.main_image | custom_image_url: '1920x590#' | image_tag:'class: menu__image' }}
-  {% endif %}
   {% if menu.depth == 1 %}
     <div class="wrapper">
   {% endif %}
@@ -18,17 +15,21 @@
     </div>
   {% endif %}
   {% if menu.foods? %}
-    {% for food in menu.foods %}
-      {% assign_prices_to prices for food in menu %}
-      {% include 'food' with food:food, menu:menu %}
-    {% endfor %}
+    <ul class="block-grid">
+      {% for food in menu.foods %}
+        {% assign_prices_to prices for food in menu %}
+        {% include 'food' with food:food, menu:menu, display_infos_food:true %}
+      {% endfor %}
+    </ul>
   {% endif %}
   {% if menu.children? %}
     {% for child in menu.children %}
       {% include 'menu' with menu:child %}
     {% endfor %}
+    <div class="clearer"></div>
   {% endif %}
   {% if menu.depth == 1 %}
+    <div class="clearer"></div>
     <div class="back-to-menu">
       <a class="back-to-menu__link" href="#top">{{ "Retour au menu" | t }}</a>
     </div>
