@@ -526,6 +526,12 @@ body {
 .page {
   @extend .clearfix;
 }
+.page-header__header {
+  text-align: center
+}
+.page-header__title {
+  font-size: 3em;
+}
 .main-header {
 }
   .logo {
@@ -922,6 +928,15 @@ legend {
     text-align: center;
   }
 
+// All menus
+.menus {
+  .section__header {
+    text-align: center;
+  }
+}
+.menus__footer {
+  margin-bottom: 3em;
+}
 // Menu item
 .menu {
   padding-bottom: 1em;
@@ -945,7 +960,8 @@ legend {
   }
 
 .menus__menu-link {
-    color: scale-color($accent-color, $saturation: -75%);
+    font-size: 1.5em;
+    color: $accent-color;
     &:hover, &:focus {
       color: $accent-color;
     }
@@ -960,13 +976,13 @@ legend {
 
 // Menu children
 .menu-children {
+  overflow: hidden;
+  margin-bottom: 1.5em;
 }
   .menu-child {
-    display: inline-block;
     margin-bottom: .5em;
     text-align: center;
-    vertical-align: top;
-    width: 49%;
+    width: 100%;
   }
     .menu-child__link {
       display: block;
@@ -980,12 +996,12 @@ legend {
     }
       .menu-child__image {
         @extend .auto;
-        border-radius: 50%;
         margin-bottom: .5em;
         vertical-align: middle;
+        width: 100%;
       }
       .menu-child__title {
-        color: scale-color($accent-color, $saturation: -75%);
+        color: #000000;
         display: block;
       }
 
@@ -1243,9 +1259,7 @@ x:-o-prefocus, .lb-overlay img {
   .main-nav__link {
     font-size: 1em;
   }
-  .menu-child {
-    width: 32%;
-  }
+  .menu-child,
   .food {
     float: left;
     width: 46%;
@@ -1357,9 +1371,7 @@ x:-o-prefocus, .lb-overlay img {
     float: right;
   }
 
-  .menu-child {
-    width: 19%;
-  }
+  .menu-child,
   .food {
     float: left;
     width: 29%;

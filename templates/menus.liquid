@@ -15,23 +15,23 @@
         </h2>
       </header>
       <main class="section__main">
-        <ul class="menu-children">
+        <ul class="menu-children block-grid">
           {% for child in menu.children %}
             <li class="menu-child">
               <a href="#menu-{{child.id}}" class="menu-child__link">
-                {{ child.main_image | custom_image_url: "100x100#" | image_tag: "class:menu-child__image" }}
+                {{ child.main_image | custom_image_url: "200x325#" | image_tag: "class:menu-child__image" }}
                 <span class="menu-child__title">{{ child.name}}</span>
               </a>
             </li>
           {% endfor %}
         </ul>
       </main>
+      <div class="clearer"></div>
       <footer class="section__main menus__footer">
         <p>
           <a class="button" href="{{ menu.url }}">{{ "Voir les plats" | t }}</a>
         </p>
       </footer>
-      <hr class="menus__separator">
     {% endfor %}
   </div>
 </section>
