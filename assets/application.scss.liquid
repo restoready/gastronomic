@@ -533,9 +533,7 @@ body {
 .page-header__title {
   font-size: 3em;
 }
-.page-header__description {
-  text-align: center;
-}
+
 .main-header {
 }
   .logo {
@@ -1371,15 +1369,25 @@ x:-o-prefocus, .lb-overlay img {
       }
         .main-nav__link {
           display: inline-block;
+          padding: 0.25em;
+          margin: .75em 1em;
           border-bottom: none;
           color: $body-color;
+          transition: color .25s;
           &:hover, &:focus, &:active {
             background-color: transparent !important;
-            color: scale-color($body-color, $lightness: -15%);
+            color: $accent-color;
           }
         }
         .main-nav__item--current {
           background-color: transparent !important;
+          .main-nav__link {
+            color: $accent-color;
+            border-top: 2px solid $accent-color !important;
+          }
+        }
+        .main-nav__item--current .main-sub-nav__link {
+          border-top: none !important;
         }
       .main-sub-nav__items {
         position: absolute;
@@ -1397,15 +1405,18 @@ x:-o-prefocus, .lb-overlay img {
             padding-left: 1em;
             color: white;
             transition: color .25s;
+            border-top: none;
             &:hover {
               color: scale-color(white, $lightness: -15%);
             }
           }
           .main-sub-nav__item--current {
             background-color: transparent !important;
+            .main-sub-nav__link {
+              color: scale-color(white, $lightness: -15%);
+            }
           }
 
-  
   .footer__subscribe {
     .input {
       display: inline-block;
