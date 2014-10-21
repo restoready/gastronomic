@@ -19,7 +19,12 @@
           {% for child in menu.children %}
             <li class="menu-child">
               <a href="{{ menu.url }}#menu-{{child.id}}" class="menu-child__link">
-                {{ child.main_image | custom_image_url: "200x325#" | image_tag: "class:menu-child__image" }}
+                <div class="image-wrapper">
+                  {{ child.main_image | custom_image_url: "200x325#" | image_tag: "class:menu-child__image" }}
+                  <div class="image-overlay">
+                    <p class="image-overlay--title">En savoir +</p>
+                  </div>
+                </div>
                 <span class="menu-child__title">{{ child.name}}</span>
               </a>
             </li>

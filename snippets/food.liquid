@@ -1,11 +1,14 @@
 <li class="food {% if food.featured_in_menu? %}food--featured{% endif %} {{food.auto_css_classes}}" id="food-{{food.id}}">
   {% if food.main_image? %}
-    {% if add_link == true %}
-      <a href="{{ restaurant.menus_path }}">
+    {% if add_overlay == true %}
+      <div class="image-wrapper">
     {% endif %}
-      {{ food.main_image | custom_image_url:'450x800#' | image_tag:'class:food__image' }}
-    {% if add_link == true %}
-      </a>
+    {{ food.main_image | custom_image_url:'450x800#' | image_tag:'class:food__image' }}
+    {% if add_overlay == true %}
+      <div class="image-overlay">
+        <p class="image-overlay--title">{{ food.name }}</p>
+      </div>
+      </div>
     {% endif %}
   {% endif %}
   {% if display_infos_food == true %}

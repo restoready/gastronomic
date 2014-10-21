@@ -157,6 +157,14 @@ $bodyFontStack: {{ theme_settings.body-font }};
     @include media;
   }
 
+// @see http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+@mixin vertical-align {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
 
 // ===========================================================================
 // Dependency-free breakpoint mixin
@@ -936,6 +944,7 @@ legend {
         margin-bottom: .5em;
         vertical-align: middle;
         width: 100%;
+        display: block;
       }
       .menu-child__title {
         color: #000000;
@@ -950,8 +959,28 @@ legend {
   padding: 0;
   margin-bottom: 1em;
 }
+.image-wrapper {
+  position: relative;
+}
   .food__image {
     width: 100%;
+    display: block;
+  }
+  .image-overlay {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    background-color: $body-color;
+    opacity: 0;
+    transition: opacity .25s;
+    &:hover {
+      opacity: 0.75;
+    }
+      .image-overlay--title {
+        color: white;
+        width: 100%;
+        text-align: center;
+        @include vertical-align;
+      }
   }
   .food__body {
     @include media-body;
