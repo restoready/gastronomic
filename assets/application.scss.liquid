@@ -3,7 +3,7 @@
  * Copyright 2014 MH Communication.
  * Author MH Communication @MHCommunication
  * Built with Sass - http://sass-lang.com/
- 
+
  * Some things to know about this file:
     - Sass is compiled on RestoReady's server so you don't need to convert it to CSS yourself
     - The output CSS is compressed and comments are removed
@@ -478,7 +478,7 @@ form.form-horizontal,
 // #Links and Buttons
 // ===========================================================================
 .button {
-  background-color: $accent-color;
+  background-color: $body-color;
   border: 0;
   color: #fff;
   cursor: pointer;
@@ -504,7 +504,7 @@ form.form-horizontal,
   &:hover,
   &:active,
   &:focus {
-    background-color: scale-color($accent-color, $lightness: -15%);
+    background-color: $accent-color;
   }
 
   &[disabled],
@@ -532,6 +532,7 @@ body {
 }
 .page-header__title {
   font-size: 3em;
+  color: scale-color($accent-color, $lightness: +45%);
 }
 
 .main-header {
@@ -552,7 +553,7 @@ body {
       text-align: center;
     }
     .slogan {
-      color: scale-color($body-color, $lightness: +25%);
+      color: scale-color($body-color, $lightness: +65%);
       font-size: .9em;
     }
 
@@ -896,7 +897,7 @@ legend {
 
 .menus__menu-link {
     font-size: 1.5em;
-    color: $accent-color;
+    color: $body-color;
     &:hover, &:focus {
       color: $accent-color;
     }
@@ -926,6 +927,7 @@ legend {
       &:hover, &:focus {
         .menu-child__title {
           color: $accent-color;
+          transition: color .25s;
         }
       }
     }
@@ -963,6 +965,8 @@ legend {
     }
     .food__summary {
       font-size: 1em;
+      line-height: 1.5;
+      color: scale-color($body-color, $lightness: +25%);
     }
   .food__separator {
     border: none;
@@ -984,7 +988,7 @@ legend {
     @include clearfix;
   }
   .price__label {
-    color: scale-color($body-color, $lightness: +25%);
+    color: scale-color($body-color, $lightness: +10%);
     float: left;
   }
   .price__value {
@@ -1145,8 +1149,8 @@ legend {
   position: absolute;
   top: 5px;
   text-align: center;
-  height: 25px;
-  width: 25px;
+  height: 60px;
+  width: 60px;
   overflow: hidden;
   text-decoration: none;
   color: $accent-color;
@@ -1160,7 +1164,7 @@ legend {
   max-height: 100%;
   position: relative;
   opacity: 0;
-  top: 30px;
+  top: 48px;
   filter: alpha(opacity=0); /* internet explorer */
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=0)"; /*IE8*/
   -webkit-transition: opacity 0.5s linear;
@@ -1171,13 +1175,13 @@ legend {
 }
 .lb-prev, .lb-next{
   position: absolute;
-  width: 25px;
-  height: 25px;
+  width: 60px;
+  height: 60px;
   left: 50%;
 }
 .lb-prev{
   color: $accent-color;
-  margin-left: -30px;
+  margin-left: -60px;
   text-decoration: none;
   transition: color .25s;
   &:hover {
@@ -1186,7 +1190,7 @@ legend {
 }
 .lb-next{
   color: $accent-color;
-  margin-left: 6px;
+  margin-left: 22px;
   text-decoration: none;
   transition: color .25s;
   &:hover {
@@ -1277,9 +1281,11 @@ x:-o-prefocus, .lb-overlay img {
 }
 .icon-chevron-circle-left:before {
   content: "\f137";
+  font-size: 3em;
 }
 .icon-chevron-circle-right:before {
   content: "\f138";
+  font-size: 3em;
 }
 .icon-bookmark:before {
   content: "\e601";
@@ -1295,6 +1301,7 @@ x:-o-prefocus, .lb-overlay img {
 }
 .icon-cross:before {
   content: "\e605";
+  font-size: 3em;
 }
 
 // ===========================================================================
@@ -1402,18 +1409,18 @@ x:-o-prefocus, .lb-overlay img {
         }
           .main-sub-nav__link {
             display: block;
-            padding-left: 1em;
-            color: white;
+            padding-left: 0;
+            color: scale-color(white, $lightness: -65%);
             transition: color .25s;
             border-top: none;
             &:hover {
-              color: scale-color(white, $lightness: -15%);
+              color: white;
             }
           }
           .main-sub-nav__item--current {
             background-color: transparent !important;
             .main-sub-nav__link {
-              color: scale-color(white, $lightness: -15%);
+              color: white;
             }
           }
 
