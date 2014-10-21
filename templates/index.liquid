@@ -4,7 +4,10 @@
       <main class="section__main">
         <ul class="block-grid">
           {% for food in home_foods %}
-            {% include 'food' with food:food, add_link:true %}
+            {% assign relative_menu = food.menu %}
+            <a href="{% if relative_menu.parent? %}{{ relative_menu.root_parent.url }}#menu-{{relative_menu.id}}{% else %}{{ relative_menu.url }}{% endif %}">
+              {% include 'food' with food:food, add_overlay:true %}
+            </a>
           {% endfor %}
         </ul>
       </main>
