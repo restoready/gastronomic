@@ -585,14 +585,22 @@ body {
   &:after {
     position: absolute;
     border: 2px solid #fff;
-    top: 35%;
-    left: 25%;
-    right: 25%;
+    top: 42%;
+    left: 15%;
+    right: 15%;
     content: '';
   }
   &:after {
     top: 60%;
   }
+}
+.main-nav__toggle-link {
+  position: absolute;
+  right: 7px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: .9em;
 }
   .toggle--close {
     background-color: $body-color;
@@ -1359,6 +1367,9 @@ x:-o-prefocus, .lb-overlay img {
     width: 3.1em;
     height: 3.1em;
   }
+  .main-nav__toggle-link {
+    font-size: .75em;
+  }
   .main-nav__link {
     font-size: 1em;
   }
@@ -1399,6 +1410,9 @@ x:-o-prefocus, .lb-overlay img {
   }
     .main-nav__toggle {
       display: none !important;
+    }
+    .main-nav__toggle-link {
+      display: none;
     }
     .main-nav__items {
       display: block;
