@@ -110,7 +110,12 @@ $bodyFontStack: {{ theme_settings.body-font }};
   *zoom: 1;
 }
 @mixin clearfix() {
-  @extend .clearfix;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  *zoom: 1;
 }
 
 @mixin box-shadow($shadow) {
@@ -533,7 +538,12 @@ body {
   clear: both;
 }
 .page {
-  @extend .clearfix;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  *zoom: 1;
 }
 .page-header__header {
   text-align: center
@@ -668,7 +678,8 @@ body {
   margin-bottom: 0;
 }
   .main-sub-nav__item {
-    @extend .main-nav__item;
+    display: block;
+    margin: 0;
     &:not(:last-child) {
       border-bottom: 1px solid scale-color($body-color, $lightness: -50%);
     }
@@ -677,7 +688,20 @@ body {
     background-color: scale-color($body-color, $lightness: -15%);
   }
     .main-sub-nav__link {
-      @extend .main-nav__link;
+      color: #FFFFFF;
+      font-family: $bodyFontStack;
+      display: block;
+      height: auto;
+      padding: 0.75em 1em;
+      font-size: 1.30em;
+      text-decoration: none;
+      transition: background-color .25s;
+      &:hover, &:focus {
+        background-color: scale-color($body-color, $lightness: -15%);
+      }
+      &:active {
+        background-color: scale-color($body-color, $lightness: -30%);
+      }
       font-weight: 400;
       padding-left: 1.5em;
     }
@@ -722,7 +746,11 @@ body {
           font-size: .7em;
         }
           .social__label {
-            @extend .hide-text;
+            height: 1px;
+            width: 1px;
+            position: absolute;
+            overflow: hidden;
+            top: -10px;
             font-size: .5em;
           }
   .footer__legal {
@@ -899,7 +927,8 @@ legend {
   overflow: hidden;
 }
     .menu__image {
-      @extend .auto;
+      max-width: 100%;
+      height: auto;
     }
   .menu__header {
     text-align: center;
@@ -951,7 +980,8 @@ legend {
       }
     }
       .menu-child__image {
-        @extend .auto;
+        max-width: 100%;
+        height: auto;
         margin-bottom: .5em;
         vertical-align: middle;
         width: 100%;
@@ -1085,7 +1115,8 @@ legend {
   }
     .gallery__img {
       img {
-        @extend .auto;
+        max-width: 100%;
+        height: auto;
         vertical-align: middle;
       }
     }
@@ -1118,7 +1149,7 @@ legend {
   }
 }
   .opening-days {
-    @extend .clearfix;
+    @include clearfix();
     margin-bottom: 1em;
   }
     .opening-day {
@@ -1151,7 +1182,8 @@ legend {
     margin-bottom: 1em;
   }
     .map__image {
-      @extend .auto;
+      max-width: 100%;
+      height: auto;
     }
   .address {
     color: $body-color;
