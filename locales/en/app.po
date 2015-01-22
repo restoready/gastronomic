@@ -50,6 +50,9 @@ msgstr "Directions"
 msgid "Retour au menu"
 msgstr "Back to menu"
 
+msgid "Actualités"
+msgstr "News"
+
 msgid "Recommandé par le chef"
 msgstr "Recommended by the chef"
 
