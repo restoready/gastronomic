@@ -20,7 +20,6 @@
                     <h5 class="news__one-news-title">{{ news.title }}</h5>
                   {% endif %}
                   {% if news.image? %}
-                    <!-- {{ news.image | custom_image_url:'450x300#' | image_tag:'class:news__one-news-image' }} -->
                     <div class="news__one-news-image" style="background:url('{{ news.image | custom_image_url: '450x400#' }}');background-size:cover;"></div>
                   {% endif %}
                   {% if news.summary %}

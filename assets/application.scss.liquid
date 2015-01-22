@@ -903,6 +903,7 @@ legend {
 
 .foods--featured {
   padding: 1em 0;
+  margin-bottom: 1em;
   .section__title {
     color: #444;
     border-bottom: 1px solid scale-color($body-color, $lightness: +85%);
@@ -1319,6 +1320,24 @@ x:-o-prefocus, .lb-overlay img {
   }
 
 // news
+  .news {
+    margin-top: 1em;
+  }
+  .news__header {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  .home-news-title__link {
+    text-decoration: none;
+    color: $body-color;
+    font-weight: bold;
+    font-size: 1.5em;
+    display: inline-block;
+    transition: color .25s;
+    &:hover {
+      color: $accent-color;
+    }
+  }
   .news__one-news {
   }
   .news__one-news-link {
