@@ -1,7 +1,7 @@
 {% if home_foods.size > 0 %}
   <section class="foods foods--featured">
     <div class="wrapper">
-      <main class="section__main">
+      <div class="section__main">
         <ul class="block-grid">
           {% for food in home_foods %}
             {% assign relative_menu = food.menu %}
@@ -10,7 +10,7 @@
             </a>
           {% endfor %}
         </ul>
-      </main>
+      </div>
       <div class="clearer"></div>
       <footer class="section__footer foods__footer">
         <p>
