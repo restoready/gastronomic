@@ -6,7 +6,7 @@
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
     <meta http-equiv="cleartype" content="on">
-    
+
     {% title_tag %}
     {% meta_description_tag %}
 
@@ -22,6 +22,16 @@
     <section class="page" id="top">
       <header class="main-header">
         <div class="wrapper">
+          {% if localized_page_paths.size > 0 %}
+            <div class="local-choice-wrapper">
+              <select class="local-choice" name="language" id="language" onChange="location = this.options[this.selectedIndex].value;">
+                {% for path in localized_page_paths %}
+                  <option value="{{ path.url }}" class="local-choice-item" {% if path.current? %}selected{%endif%}>{{ path.locale_code }}</option>
+                {% endfor %}
+              </select>
+              <i class="icon icon-arrow-down local-choice__icon"></i>
+            </div>
+          {% endif %}
           <div class="identity">
             {% if restaurant.logo? %}
               <div class="logo">
@@ -56,6 +66,9 @@
     <script type="text/javascript">
       $( function() {
         $( '.has-sub-nav' ).doubleTapToGo();
+        $('.main-nav__toggle').click(function(){
+          $('.local-choice-wrapper').toggle();
+        });
       });
     </script>
   </body>

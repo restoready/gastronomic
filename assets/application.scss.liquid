@@ -575,6 +575,36 @@ body {
       font-size: .9em;
     }
 
+.local-choice-wrapper {
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+    margin: .5em auto 0 auto;
+  }
+  .local-choice {
+    cursor: pointer;
+    width: 65px;
+    height: 30px;
+    margin: 0 auto;
+    background: transparent;
+    -webkit-appearance: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #465155;
+    border: 2px solid #465155;
+    text-transform: uppercase;
+    border-radius: 0;
+    outline: none;
+    position: relative;
+    z-index: 1;
+  }
+  .local-choice__icon {
+    position: absolute;
+    top: .25em;
+    right: .5em;
+    z-index: 0;
+  }
+
 .main-nav {
   position: absolute;
   top: 0;
@@ -772,8 +802,26 @@ body {
     }
   .back-to-top__label,
   .legal__link {
-    font-size: .75em;
+    //font-size: .75em;
   }
+  .footer__local-choice {
+      display: inline-block;
+    }
+      .footer__local-choice-item {
+        text-decoration: none;
+        color: scale-color($body-color, $lightness: +25%);
+        &:hover, &:focus {
+          color: $body-color;
+        }
+      }
+      .footer__local-choice-item--current {
+        color: $accent-color;
+      }
+      .footer__local-separator {
+        color: scale-color($body-color, $lightness: +25%);
+        font-weight: normal;
+      }
+
 // Forms
 input[type="text"],
 input[type="search"],
