@@ -497,7 +497,7 @@ form.form-horizontal,
   cursor: pointer;
   display: inline-block;
   margin: 0;
-  padding: .5em 2em;
+  padding: .45em 2em;
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
@@ -590,8 +590,8 @@ body {
     -webkit-appearance: none;
     font-size: 16px;
     font-weight: bold;
-    color: #465155;
-    border: 2px solid #465155;
+    color: $accent-color;
+    border: 2px solid $accent-color;
     text-transform: uppercase;
     border-radius: 0;
     outline: none;
@@ -600,9 +600,10 @@ body {
   }
   .local-choice__icon {
     position: absolute;
-    top: .25em;
+    top: 0;
     right: .5em;
     z-index: 0;
+    color: $accent-color;
   }
 
 .main-nav {
@@ -776,10 +777,6 @@ body {
           &:hover, &:focus {
             color: $accent-color;
           }
-        }
-        .social__link .icon-phone,
-        .social__link .icon-envelope {
-          font-size: .7em;
         }
           .social__label {
             height: 1px;
@@ -1425,71 +1422,69 @@ x:-o-prefocus, .lb-overlay img {
     display: none;
   }
 
-// ===========================================================================
-// #Icomoon
-// ===========================================================================
+/*
+  Icon Font: fontcustom
+*/
 
 @font-face {
-  font-family: 'gastronomic';
-  src:url("{{ 'gastronomic.eot?xwlafa' | asset_url }}");
-  src:url("{{ 'gastronomic.eot?#iefixxwlafa' | asset_url }}") format('embedded-opentype'),
-    url("{{ 'gastronomic.woff?xwlafa' | asset_url }}") format('woff'),
-    url("{{ 'gastronomic.ttf?xwlafa' | asset_url }}") format('truetype'),
-    url("{{ 'gastronomic.svg?xwlafa#gastronomic' | asset_url }}") format('svg');
+  font-family: "fontcustom";
+  src: url("./fontcustom_581d8b2bc5e9a4da74ef084ee2f9b9c6.eot");
+  src: url("./fontcustom_581d8b2bc5e9a4da74ef084ee2f9b9c6.eot?#iefix") format("embedded-opentype"),
+       url("./fontcustom_581d8b2bc5e9a4da74ef084ee2f9b9c6.woff") format("woff"),
+       url("./fontcustom_581d8b2bc5e9a4da74ef084ee2f9b9c6.ttf") format("truetype"),
+       url("./fontcustom_581d8b2bc5e9a4da74ef084ee2f9b9c6.svg#fontcustom") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
-  font-family: 'gastronomic';
-  speak: none;
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "fontcustom";
+    src: url("./fontcustom_581d8b2bc5e9a4da74ef084ee2f9b9c6.svg#fontcustom") format("svg");
+  }
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.icon-arrow-down:before,
+.icon-arrow-left:before,
+.icon-arrow-right:before,
+.icon-bookmark:before,
+.icon-check:before,
+.icon-close:before,
+.icon-envelop:before,
+.icon-facebook:before,
+.icon-phone:before,
+.icon-tripadvisor:before,
+.icon-twitter:before,
+.icon-warning:before {
+  display: inline-block;
+  font-family: "fontcustom";
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
-  text-transform: none;
   line-height: 1;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
 }
 
-.icon-phone-hang-up:before {
-  content: "\e606";
-}
-.icon-tripadvisor:before {
-  content: "\e607";
-}
-.icon-uniE600:before {
-  content: "\e600";
-}
-.icon-check-circle:before {
-  content: "\f058";
-}
-.icon-chevron-circle-left:before {
-  content: "\f137";
-  font-size: 3em;
-}
-.icon-chevron-circle-right:before {
-  content: "\f138";
-  font-size: 3em;
-}
-.icon-bookmark:before {
-  content: "\e601";
-}
-.icon-mail:before {
-  content: "\e602";
-}
-.icon-facebook:before {
-  content: "\e603";
-}
-.icon-twitter:before {
-  content: "\e604";
-}
-.icon-cross:before {
-  content: "\e605";
-  font-size: 3em;
-}
+.icon-arrow-down:before { content: "\f10c"; }
+.icon-arrow-left:before { content: "\f10d"; }
+.icon-arrow-right:before { content: "\f10e"; }
+.icon-bookmark:before { content: "\f10f"; }
+.icon-check:before { content: "\f110"; }
+.icon-close:before { content: "\f111"; }
+.icon-envelop:before { content: "\f112"; }
+.icon-facebook:before { content: "\f113"; }
+.icon-phone:before { content: "\f114"; }
+.icon-tripadvisor:before { content: "\f115"; }
+.icon-twitter:before { content: "\f116"; }
+.icon-warning:before { content: "\f117"; }
 
 // ===========================================================================
 // #Breakpoints
