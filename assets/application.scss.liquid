@@ -43,8 +43,8 @@ $overlay-background: {{ theme_settings.overlay-background }};
 $body-color: {{ theme_settings.body-color }};
 $accent-color: {{ theme_settings.accent-color }};
 
-// Foods
-$food-separator-color: #f0f0f0;
+// Separator
+$separator-color: #f0f0f0;
 
 // ===========================================================================
 // #Box model
@@ -277,7 +277,7 @@ $class-type: unquote(".");
   @include clearfix();
   max-width: $siteWidth;
   margin: 0 auto;
-  padding: 0 $gutter;
+  padding: 0 1em;
 }
 
 
@@ -497,7 +497,7 @@ form.form-horizontal,
   cursor: pointer;
   display: inline-block;
   margin: 0;
-  padding: .5em 2em;
+  padding: .45em 2em;
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
@@ -574,6 +574,37 @@ body {
       color: scale-color($body-color, $lightness: +65%);
       font-size: .9em;
     }
+
+.local-choice-wrapper {
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+    margin: .5em auto 0 auto;
+  }
+  .local-choice {
+    cursor: pointer;
+    width: 65px;
+    height: 30px;
+    margin: 0 auto;
+    background: transparent;
+    -webkit-appearance: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: $accent-color;
+    border: 2px solid $accent-color;
+    text-transform: uppercase;
+    border-radius: 0;
+    outline: none;
+    position: relative;
+    z-index: 1;
+  }
+  .local-choice__icon {
+    position: absolute;
+    top: 0;
+    right: .5em;
+    z-index: 0;
+    color: $accent-color;
+  }
 
 .main-nav {
   position: absolute;
@@ -717,7 +748,7 @@ body {
 .main-footer {
 }
   .back-to-top {
-    padding: $gutter;
+    padding: 1em;
     text-align: center;
   }
     .back-to-top__link {
@@ -747,10 +778,6 @@ body {
             color: $accent-color;
           }
         }
-        .social__link .icon-phone,
-        .social__link .icon-envelope {
-          font-size: .7em;
-        }
           .social__label {
             height: 1px;
             width: 1px;
@@ -772,8 +799,26 @@ body {
     }
   .back-to-top__label,
   .legal__link {
-    font-size: .75em;
+    //font-size: .75em;
   }
+  .footer__local-choice {
+      display: inline-block;
+    }
+      .footer__local-choice-item {
+        text-decoration: none;
+        color: scale-color($body-color, $lightness: +25%);
+        &:hover, &:focus {
+          color: $body-color;
+        }
+      }
+      .footer__local-choice-item--current {
+        color: $accent-color;
+      }
+      .footer__local-separator {
+        color: scale-color($body-color, $lightness: +25%);
+        font-weight: normal;
+      }
+
 // Forms
 input[type="text"],
 input[type="search"],
@@ -903,6 +948,7 @@ legend {
 
 .foods--featured {
   padding: 1em 0;
+  margin-bottom: 1em;
   .section__title {
     color: #444;
     border-bottom: 1px solid scale-color($body-color, $lightness: +85%);
@@ -958,8 +1004,8 @@ legend {
   }
   .menus__separator {
     border: none;
-    border-top: medium solid $food-separator-color;
-    color: $food-separator-color;
+    border-top: medium solid $separator-color;
+    color: $separator-color;
     margin: 1em 0;
     padding: 0;
   }
@@ -1009,7 +1055,8 @@ legend {
 .image-wrapper {
   position: relative;
 }
-  .food__image {
+  .food__image,
+  .food__fallback-image {
     width: 100%;
     display: block;
   }
@@ -1029,10 +1076,7 @@ legend {
         @include vertical-align;
       }
   }
-  .food__fallback-image {
-    width: 100%;
-    display: block;
-  }
+
   .food__body {
     @include media-body;
   }
@@ -1050,8 +1094,8 @@ legend {
     }
   .food__separator {
     border: none;
-    border-top: 1px solid $food-separator-color;
-    color: $food-separator-color;
+    border-top: 1px solid $separator-color;
+    color: $separator-color;
     margin: 1em 0;
     padding: 0;
   }
@@ -1174,7 +1218,7 @@ legend {
     margin-bottom: 1em;
   }
 
-// Contact 
+// map
 .directions, .business-view {
   background-color: #fff;
   margin-bottom: 1em;
@@ -1320,71 +1364,127 @@ x:-o-prefocus, .lb-overlay img {
     font-weight: 700;
   }
 
-// ===========================================================================
-// #Icomoon
-// ===========================================================================
+// news
+  .news {
+    margin-top: 1em;
+  }
+  .news__header {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  .home-news-title__link {
+    text-decoration: none;
+    color: $body-color;
+    font-weight: bold;
+    font-size: 1.5em;
+    display: inline-block;
+    transition: color .25s;
+    &:hover {
+      color: $accent-color;
+    }
+  }
+  .news__one-news {
+  }
+  .news__one-news-link {
+    color: $body-color;
+    text-decoration: none;
+  }
+  .news__one-news-image {
+    width: 100%;
+    display: block;
+    height: 300px;
+    background-position: center center;
+  }
+  .news__one-news-content-wrapper {
+    width: 100%;
+    padding: 0;
+  }
+  .news__one-news-date {
+    font-weight: bold;
+    margin-bottom: .5em;
+    font-size: .75em;
+  }
+  .news__one-news-content {
+  }
+  .news__one-news-title {
+    font-size: 1.75em;
+    font-weight: bold;
+  }
+  .news__one-news-summary {
+    margin-bottom: 0;
+    padding-top: .75em;
+  }
+  .news__separator {
+    color: $separator-color;
+    margin: 1.5em 0;
+  }
+  .news__separator--last {
+    display: none;
+  }
+
+/*
+  Icon Font: fontcustom
+*/
 
 @font-face {
-  font-family: 'gastronomic';
-  src:url("{{ 'gastronomic.eot?xwlafa' | asset_url }}");
-  src:url("{{ 'gastronomic.eot?#iefixxwlafa' | asset_url }}") format('embedded-opentype'),
-    url("{{ 'gastronomic.woff?xwlafa' | asset_url }}") format('woff'),
-    url("{{ 'gastronomic.ttf?xwlafa' | asset_url }}") format('truetype'),
-    url("{{ 'gastronomic.svg?xwlafa#gastronomic' | asset_url }}") format('svg');
+  font-family: "fontcustom";
+  src: url("./fontcustom_581d8b2bc5e9a4da74ef084ee2f9b9c6.eot");
+  src: url("./fontcustom_581d8b2bc5e9a4da74ef084ee2f9b9c6.eot?#iefix") format("embedded-opentype"),
+       url("./fontcustom_581d8b2bc5e9a4da74ef084ee2f9b9c6.woff") format("woff"),
+       url("./fontcustom_581d8b2bc5e9a4da74ef084ee2f9b9c6.ttf") format("truetype"),
+       url("./fontcustom_581d8b2bc5e9a4da74ef084ee2f9b9c6.svg#fontcustom") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
-  font-family: 'gastronomic';
-  speak: none;
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "fontcustom";
+    src: url("./fontcustom_581d8b2bc5e9a4da74ef084ee2f9b9c6.svg#fontcustom") format("svg");
+  }
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.icon-arrow-down:before,
+.icon-arrow-left:before,
+.icon-arrow-right:before,
+.icon-bookmark:before,
+.icon-check:before,
+.icon-close:before,
+.icon-envelop:before,
+.icon-facebook:before,
+.icon-phone:before,
+.icon-tripadvisor:before,
+.icon-twitter:before,
+.icon-warning:before {
+  display: inline-block;
+  font-family: "fontcustom";
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
-  text-transform: none;
   line-height: 1;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
 }
 
-.icon-phone-hang-up:before {
-  content: "\e606";
-}
-.icon-tripadvisor:before {
-  content: "\e607";
-}
-.icon-uniE600:before {
-  content: "\e600";
-}
-.icon-check-circle:before {
-  content: "\f058";
-}
-.icon-chevron-circle-left:before {
-  content: "\f137";
-  font-size: 3em;
-}
-.icon-chevron-circle-right:before {
-  content: "\f138";
-  font-size: 3em;
-}
-.icon-bookmark:before {
-  content: "\e601";
-}
-.icon-mail:before {
-  content: "\e602";
-}
-.icon-facebook:before {
-  content: "\e603";
-}
-.icon-twitter:before {
-  content: "\e604";
-}
-.icon-cross:before {
-  content: "\e605";
-  font-size: 3em;
-}
+.icon-arrow-down:before { content: "\f10c"; }
+.icon-arrow-left:before { content: "\f10d"; }
+.icon-arrow-right:before { content: "\f10e"; }
+.icon-bookmark:before { content: "\f10f"; }
+.icon-check:before { content: "\f110"; }
+.icon-close:before { content: "\f111"; }
+.icon-envelop:before { content: "\f112"; }
+.icon-facebook:before { content: "\f113"; }
+.icon-phone:before { content: "\f114"; }
+.icon-tripadvisor:before { content: "\f115"; }
+.icon-twitter:before { content: "\f116"; }
+.icon-warning:before { content: "\f117"; }
 
 // ===========================================================================
 // #Breakpoints
@@ -1572,6 +1672,30 @@ x:-o-prefocus, .lb-overlay img {
     .contact-item__name {
       margin-top: 2.15em;
     }
+
+    // news
+  .news__one-news {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  .news__one-news-image {
+    position: absolute;
+    width: 30%;
+    display: block;
+    height: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+  .news__one-news-content-wrapper {
+    width: 70%;
+    float: right;
+    padding: 1em 2em;
+  }
+  .news__one-news-content-wrapper--no-image {
+    width: 100%;
+  }
 }
 
 // > Large
