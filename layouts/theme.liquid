@@ -63,9 +63,11 @@
 
     {{ 'jquery-2.1.1.min.js' | javascript_tag }}
     {{ 'doubletaptogo.min.js' | javascript_tag }}
+    {{ 'venobox.min.js' | javascript_tag }}
     <script type="text/javascript">
       $( function() {
         $( '.has-sub-nav' ).doubleTapToGo();
+        $('.venobox').venobox();
         $('.main-nav__toggle').click(function(){
           $('.local-choice-wrapper').toggle();
         });
