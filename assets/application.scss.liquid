@@ -43,20 +43,6 @@ $overlay-background: {{ theme_settings.overlay-background }};
 $body-color: {{ theme_settings.body-color }};
 $accent-color: {{ theme_settings.accent-color }};
 
-$tag-new-background-color: {{ theme_settings.tag-new-background-color }};
-$tag-vegan-background-color: {{ theme_settings.tag-vegan-background-color }};
-$tag-no-meat-background-color: {{ theme_settings.tag-no-meat-background-color }};
-$tag-no-pork-background-color: {{ theme_settings.tag-no-pork-background-color }};
-$tag-alcohol-free-background-color: {{ theme_settings.tag-alcohol-free-background-color }};
-$tag-daily-food-background-color: {{ theme_settings.tag-daily-food-background-color }};
-
-$tag-new-font-color: {{ theme_settings.tag-new-font-color }};
-$tag-vegan-font-color: {{ theme_settings.tag-vegan-font-color }};
-$tag-no-meat-font-color: {{ theme_settings.tag-no-meat-font-color }};
-$tag-no-pork-font-color: {{ theme_settings.tag-no-pork-font-color }};
-$tag-alcohol-free-font-color: {{ theme_settings.tag-alcohol-free-font-color }};
-$tag-daily-food-font-color: {{ theme_settings.tag-daily-food-font-color }};
-
 // Separator
 $separator-color: #f0f0f0;
 
@@ -171,7 +157,7 @@ $bodyFontStack: {{ theme_settings.body-font }};
   @mixin media-aside($side: left) {
     float: $side;
   }
-  
+
   @mixin media-body() {
     @include media;
   }
@@ -1162,38 +1148,16 @@ legend {
     background-color: $accent-color;
     color: #FFFFFF;
   }
-    .tag--vegan, .tag--vegetarian {
-      background-color: #8a9e6c;
-      color: #fff;
-    }
-    .tag--new {
-      background-color: #d8c061;
-      color: #fff;
-    }
-    .tag--vegan, .tag--vegetarian {
-      background-color: $tag-vegan-background-color;
-      color: $tag-vegan-font-color;
-    }
-    .tag--alcohol-free {
-      background-color: $tag-alcohol-free-background-color;
-      color: $tag-alcohol-free-font-color;
-    }
-    .tag--new {
-      background-color: $tag-new-background-color;
-      color: $tag-new-font-color;
-    }
-    .tag--no-pork {
-      background-color: $tag-no-pork-background-color;
-      color: $tag-no-pork-font-color;
-    }
-    .tag--no-meat {
-      background-color: $tag-no-meat-background-color;
-      color: $tag-no-meat-font-color;
-    }
-    .tag--daily-food {
-      background-color: $tag-daily-food-background-color;
-      color: $tag-daily-food-font-color;
-    }
+    {% for tag in tags %}
+      .tag--{{tag.css_class}} {
+        {% if tag.background_value != "" %}
+          background-color: {{ tag.background_value }};
+        {% endif %}
+        {% if tag.color_value != "" %}
+          color: {{ tag.color_value }};
+        {% endif %}
+      }
+    {% endfor %}
 
 // Gallery
 .restaurant-gallery {

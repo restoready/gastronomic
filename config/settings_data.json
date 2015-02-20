@@ -13,18 +13,18 @@
     "display_google_business_view_embed": false,
     "google_map_type": "image",
     "footer_display_newsletter": true,
-    "tag-new-background-color": "#e2001a",
-    "tag-vegan-background-color": "#375542",
-    "tag-no-meat-background-color": "#f22d1e",
-    "tag-no-pork-background-color": "#dd800d",
-    "tag-alcohol-free-background-color": "#1c97c3",
-    "tag-daily-food-background-color": "#375542",
-    "tag-new-font-color": "#ffffff",
-    "tag-vegan-font-color": "#ffffff",
-    "tag-no-meat-font-color": "#ffffff",
-    "tag-no-pork-font-color": "#ffffff",
-    "tag-alcohol-free-font-color": "#ffffff",
-    "tag-daily-food-font-color": "#ffffff"
+    "tags":{
+      "vegan-background": "#8a9e6c",
+      "vegan-color": "#ffffff",
+      "new-background": "#d8c061",
+      "new-color": "#ffffff",
+      "no-pork-background": "#73ABE1",
+      "no-pork-color": "#ffffff",
+      "no-meat-background": "#DACD13",
+      "no-meat-color": "#ffffff",
+      "alcohol-free-background": "#48caf2",
+      "alcohol-free-color": "#ffffff"
+    }
   },
   "presets":{
     "Original":{
@@ -41,18 +41,18 @@
       "display_google_business_view_embed": false,
       "google_map_type": "image",
       "footer_display_newsletter": true,
-      "tag-new-background-color": "#e2001a",
-      "tag-vegan-background-color": "#375542",
-      "tag-no-meat-background-color": "#f22d1e",
-      "tag-no-pork-background-color": "#dd800d",
-      "tag-alcohol-free-background-color": "#1c97c3",
-      "tag-daily-food-background-color": "#375542",
-      "tag-new-font-color": "#ffffff",
-      "tag-vegan-font-color": "#ffffff",
-      "tag-no-meat-font-color": "#ffffff",
-      "tag-no-pork-font-color": "#ffffff",
-      "tag-alcohol-free-font-color": "#ffffff",
-      "tag-daily-food-font-color": "#ffffff"
+      "tags":{
+        "vegan-background": "#8a9e6c",
+        "vegan-color": "#ffffff",
+        "new-background": "#d8c061",
+        "new-color": "#ffffff",
+        "no-pork-background": "#73ABE1",
+        "no-pork-color": "#ffffff",
+        "no-meat-background": "#DACD13",
+        "no-meat-color": "#ffffff",
+        "alcohol-free-background": "#48caf2",
+        "alcohol-free-color": "#ffffff"
+      }
     }
   }
 }
