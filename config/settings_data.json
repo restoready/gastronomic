@@ -13,6 +13,8 @@
     "display_google_business_view_embed": false,
     "google_map_type": "image",
     "footer_display_newsletter": true,
+    "home_display_news": true,
+    "restaurant_display_news": false,
     "tags":{
       "vegan-background": "#8a9e6c",
       "vegan-color": "#ffffff",
@@ -41,6 +43,8 @@
       "display_google_business_view_embed": false,
       "google_map_type": "image",
       "footer_display_newsletter": true,
+      "home_display_news": true,
+      "restaurant_display_news": false,
       "tags":{
         "vegan-background": "#8a9e6c",
         "vegan-color": "#ffffff",
