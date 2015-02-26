@@ -2,13 +2,13 @@
   {% if add_overlay == true %}
     <div class="image-wrapper">
   {% endif %}
-  
+
   {% if food.main_image? %}
     {{ food.main_image | custom_image_url:'450x800#' | image_tag:'class:food__image' }}
   {% else %}
     {{ 'fallback-image.gif' | asset_url | image_tag: 'alt:food-image', 'class:food__fallback-image', 'width:450'}}
   {% endif %}
-    
+
   {% if add_overlay == true %}
     <div class="image-overlay">
       <p class="image-overlay--title">{{ food.name }}</p>

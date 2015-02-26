@@ -119,6 +119,9 @@ msgstr "Visit"
 msgid "Valider"
 msgstr "Validate"
 
+msgid "S'abonner"
+msgstr "Subscribe"
+
 msgid "Notre carte"
 msgstr "Our menu"
 

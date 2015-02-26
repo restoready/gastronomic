@@ -20,7 +20,13 @@
             <li class="menu-child">
               <a href="{{ menu.url }}#menu-{{child.id}}" class="menu-child__link">
                 <div class="image-wrapper">
-                  {{ child.main_image | custom_image_url: "200x325#" | image_tag: "class:menu-child__image" }}
+
+                   {% if child.main_image? %}
+                      {{ child.main_image | custom_image_url: "200x325#" | image_tag: "class:menu-child__image" }}
+                    {% else %}
+                      {{ 'fallback-image.gif' | asset_url | custom_image_url: "200x325#" | image_tag: 'alt:food-image', 'class:menu__fallback-image'}}
+                    {% endif %}
+
                   <div class="image-overlay">
                     <p class="image-overlay--title">En savoir +</p>
                   </div>

@@ -988,7 +988,7 @@ legend {
     text-align: center;
   }
     .menu__title {
-      color: #000;
+      color: $body-color;
       margin-bottom: .5em;
     }
   .menu__description {
@@ -1034,15 +1034,18 @@ legend {
       }
     }
       .menu-child__image {
-        max-width: 100%;
         height: auto;
         margin-bottom: .5em;
         vertical-align: middle;
         width: 100%;
         display: block;
       }
+      .menu__fallback-image {
+        width: 100%;
+        display: block;
+      }
       .menu-child__title {
-        color: #000000;
+        color: $body-color;
         display: block;
       }
 
@@ -1061,6 +1064,7 @@ legend {
   .food__fallback-image {
     width: 100%;
     display: block;
+    margin-bottom: .5em;
   }
   .image-overlay {
     position: absolute;
@@ -1083,10 +1087,9 @@ legend {
     @include media-body;
   }
     .food__title {
-      color: #000;
+      color: $body-color;
       font-family: $bodyFontStack;
       font-size: 1.25em;
-      font-weight: 700;
       margin-bottom: .25em;
     }
     .food__summary {
@@ -1136,15 +1139,16 @@ legend {
       color: #727272;
       text-decoration: none;
       &:hover, &:focus {
-        color: #000;
+        color: $body-color;
       }
     }
 
 // Tags
 .food__tags {
+  margin-bottom: .5em;
 }
   .tag {
-    font-size: .95em;
+    font-size: .85em;
     border-radius: $radius;
     padding: .2em .4em;
     background-color: $accent-color;
@@ -1559,7 +1563,7 @@ body{
 /* ------- PLease do NOT edit this! (or do it at your own risk) ------ */
 .vbox-container{
     position: relative;
-    background: #000;
+    background: $body-color;
     width: 98%;
     max-width: 1024px;
     margin: 0 auto;
@@ -1875,7 +1879,7 @@ body{
   .menu-child,
   .food {
     float: left;
-    width: 29%;
+    width: 29.3333333%;
     margin: .5em 2%;
   }
   .block-grid {
